@@ -12,7 +12,7 @@ from dotenv import load_dotenv,find_dotenv
 
 # Carregando .env
 load_dotenv()
-set_debug(True)
+#set_debug(True)
 
 
 class Destino(BaseModel):
@@ -32,7 +32,7 @@ llm = ChatOpenAI(api_key=os.getenv("OPENAI_API_KEY")
 parseador = JsonOutputParser(pydantic_object=Destino)
 
 model_city = ChatPromptTemplate.from_template(
-    template="""Sugira uma cidade dado meu interesse por {interesse}
+    template="""Sugira uma cidade brasileira dado meu interesse por {interesse}
     {formatacao_de_saida}
     """
 ).partial(formatacao_de_saida=parseador.get_format_instructions())
